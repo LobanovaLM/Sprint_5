@@ -6,21 +6,8 @@ from utils.data import TestData
 class TestLogout:
     """Тесты выхода из системы"""
     
-    @pytest.fixture(autouse=True)
-    def setup(self, driver, main_page):
-        """Авторизация перед каждым тестом"""
-        # Открываем страницу авторизации
-        main_page.click_login_register_button()
-        auth_page = AuthPage(driver)
-        
-        # Авторизуемся
-        auth_page.login_user(
-            TestData.EXISTING_USER_EMAIL,
-            TestData.EXISTING_USER_PASSWORD
-        )
-        yield
-    
-    def test_successful_logout(self, driver, main_page):
+    def test_successful_logout(self, authenticated_user, main_page):
+        self.driver = authenticated_user
         """Успешный выход из системы"""
         # Выходим из системы
         main_page.click_logout_button()

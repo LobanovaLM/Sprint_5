@@ -35,3 +35,23 @@ def auth_page(driver):
     """Фикстура для страницы авторизации"""
     
     return AuthPage(driver)
+
+@pytest.fixture
+def authenticated_user(driver, main_page):
+    
+    # Открываем страницу авторизации
+    main_page.click_login_register_button()
+    auth_page = AuthPage(driver)
+    
+    # Авторизуемся
+    auth_page.login_user(
+        TestData.EXISTING_USER_EMAIL,
+        TestData.EXISTING_USER_PASSWORD
+    )
+    
+    # Ждем подтверждения авторизации
+    main_page.is_user_avatar_displayed()
+    
+    print("Авторизация выполнена успешно")
+    
+    yield driver

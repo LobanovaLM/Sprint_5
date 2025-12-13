@@ -18,18 +18,9 @@ class TestAdvertisement:
         assert create_ad_page.is_auth_modal_displayed()
         assert TestData.WARNING_LOG in create_ad_page.get_auth_modal_title()
     
-    def test_create_ad_authorized(self, driver, main_page):
+    def test_create_ad_authorized(self, authenticated_user, main_page):
         """Авторизация перед тестом создания объявления"""
-        # Открываем страницу авторизации
-        main_page.click_login_register_button()
-        auth_page = AuthPage(driver)
-        
-        # Авторизуемся
-        auth_page.login_user(
-            TestData.EXISTING_USER_EMAIL,
-            TestData.EXISTING_USER_PASSWORD
-        )
-        main_page.is_user_avatar_displayed()
+        driver = authenticated_user
         
         """Создание объявления авторизованным пользователем"""
         # Открываем страницу создания объявления
