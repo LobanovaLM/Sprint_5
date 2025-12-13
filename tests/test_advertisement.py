@@ -51,10 +51,7 @@ class TestAdvertisement:
         profile_page = ProfilePage(driver)
         
         # Проверяем, что объявление отображается в профиле
-        assert profile_page.is_element_present(profile_page.locators.MY_ADS_SECTION)
-        ads = profile_page.find_elements(profile_page.locators.AD_ITEM)
-        assert len(ads) > 0
-        
-        # Проверяем заголовок созданного объявления
-        ad_titles = profile_page.find_elements(profile_page.locators.AD_TITLE)
-        assert any(TestData.AD_TITLE in title.text for title in ad_titles)
+        assert profile_page.is_my_ads_section_visible(), "Раздел 'Мои объявления' не отображается"
+        assert profile_page.get_ads_count() > 0, "В профиле нет объявлений"
+        assert profile_page.is_ad_with_title_present(TestData.AD_TITLE), \
+            f"Объявление с заголовком '{TestData.AD_TITLE}' не найдено в профиле"

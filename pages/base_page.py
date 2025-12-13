@@ -60,3 +60,12 @@ class BasePage:
             return True
         except:
             return False
+        
+    def is_element_visible(self, locator, timeout=5):
+        try:
+            WebDriverWait(self.driver, timeout).until(
+                EC.visibility_of_element_located(locator)
+            )
+            return True
+        except:
+            return False
