@@ -11,7 +11,7 @@ class TestRegistration:
         """Регистрация нового пользователя"""
         # Открываем страницу авторизации
         main_page.click_login_register_button()
-        auth_page = AuthPage(driver, driver.current_url)
+        auth_page = AuthPage(driver)
         
         # Регистрируем нового пользователя
         email = generate_random_email()
@@ -30,7 +30,7 @@ class TestRegistration:
         """Регистрация с email не по маске"""
         # Открываем страницу авторизации
         main_page.click_login_register_button()
-        auth_page = AuthPage(driver, driver.current_url)
+        auth_page = AuthPage(driver)
         
         # Нажимаем "Нет аккаунта"
         auth_page.click_no_account_button()
@@ -54,7 +54,7 @@ class TestRegistration:
         """Регистрация уже существующего пользователя"""
         # Открываем страницу авторизации
         main_page.click_login_register_button()
-        auth_page = AuthPage(driver, driver.current_url)
+        auth_page = AuthPage(driver)
         
         # Пытаемся зарегистрировать существующего пользователя
         auth_page.register_new_user(email, password)

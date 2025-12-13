@@ -26,15 +26,12 @@ def driver():
 def main_page(driver):
     """Фикстура для главной страницы"""
     
-    page = MainPage(driver, TestData.BASE_URL)
-    page.open()
+    page = MainPage(driver)
+    page.open(TestData.BASE_URL)
     return page
-
 
 @pytest.fixture
 def auth_page(driver):
     """Фикстура для страницы авторизации"""
     
-    page = AuthPage(driver, TestData.BASE_URL)
-    page.open()
-    return page
+    return AuthPage(driver)

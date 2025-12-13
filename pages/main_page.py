@@ -3,11 +3,14 @@ from locators.main_page_locators import MainPageLocators
 
 
 class MainPage(BasePage):
+    def __init__(self, driver):
+        super().__init__(driver)
+
     def click_login_register_button(self):
         self.click_element(MainPageLocators.LOGIN_REGISTER_BUTTON)
     
     def click_create_ad_button(self):
-        self.click_element(MainPageLocators.CREATE_AD_BUTTON)
+        self.wait_and_click_element(MainPageLocators.CREATE_AD_BUTTON)
     
     def click_logout_button(self):
         self.click_element(MainPageLocators.LOGOUT_BUTTON)

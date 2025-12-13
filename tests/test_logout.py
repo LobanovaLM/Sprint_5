@@ -11,7 +11,7 @@ class TestLogout:
         """Авторизация перед каждым тестом"""
         # Открываем страницу авторизации
         main_page.click_login_register_button()
-        auth_page = AuthPage(driver, driver.current_url)
+        auth_page = AuthPage(driver)
         
         # Авторизуемся
         auth_page.login_user(

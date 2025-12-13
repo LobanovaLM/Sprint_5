@@ -3,6 +3,9 @@ from locators.create_add_locators import CreateAdLocators
 
 
 class CreateAdPage(BasePage):
+    def __init__(self, driver):
+        super().__init__(driver)
+
     def enter_title(self, title):
         self.send_keys(CreateAdLocators.TITLE_INPUT, title)
     

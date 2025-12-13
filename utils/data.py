@@ -13,6 +13,8 @@ class TestData:
     AD_TITLE = "Тестовое объявление"
     AD_DESCRIPTION = "Описание тестового объявления"
     AD_PRICE = "1000"
+    AD_CATEGORY = "Книги"
+    AD_CITY = "Санкт-Петербург"
     
     # Невалидные данные
     INVALID_EMAIL = "invalid-email"

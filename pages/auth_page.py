@@ -2,6 +2,9 @@ from pages.base_page import BasePage
 from locators.auth_page_locators import AuthPageLocators
 
 class AuthPage(BasePage):
+    def __init__(self, driver):
+        super().__init__(driver)
+        
     def click_no_account_button(self):
         self.click_element(AuthPageLocators.NO_ACCOUNT_BUTTON)
     
