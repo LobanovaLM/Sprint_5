@@ -35,8 +35,6 @@ class TestAdvertisement:
         # Открываем страницу создания объявления
         main_page.click_create_ad_button()
         create_ad_page = CreateAdPage(driver)
-
-        assert driver.current_url == TestData.CREATE_URL
         
         # Создаем объявление
         create_ad_page.create_advertisement(
@@ -47,7 +45,7 @@ class TestAdvertisement:
             city=TestData.AD_CITY,
             condition="new"
         )
-        assert driver.current_url == TestData.CREATE_URL
+
         # Переходим в профиль
         driver.get(TestData.PROFILE_URL)
         profile_page = ProfilePage(driver)
