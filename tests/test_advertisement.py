@@ -1,11 +1,8 @@
-import time
 import pytest
 from pages.auth_page import AuthPage
 from pages.create_add_page import CreateAdPage
 from pages.profile_page import ProfilePage
-from pages.base_page import BasePage
 from utils.data import TestData
-from selenium.webdriver.support.ui import WebDriverWait
 
 
 class TestAdvertisement:
@@ -19,7 +16,7 @@ class TestAdvertisement:
         # Проверяем отображение модального окна
         create_ad_page = CreateAdPage(driver)
         assert create_ad_page.is_auth_modal_displayed()
-        assert "Чтобы разместить объявление, авторизуйтесь" in create_ad_page.get_auth_modal_title()
+        assert TestData.WARNING_LOG in create_ad_page.get_auth_modal_title()
     
     def test_create_ad_authorized(self, driver, main_page):
         """Авторизация перед тестом создания объявления"""

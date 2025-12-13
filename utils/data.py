@@ -19,3 +19,5 @@ class TestData:
     # Невалидные данные
     INVALID_EMAIL = "invalid-email"
     SHORT_PASSWORD = "123"
+
+    WARNING_LOG = "Чтобы разместить объявление, авторизуйтесь"
