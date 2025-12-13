@@ -1,8 +1,9 @@
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
-
-
+from pages.main_page import MainPage
+from utils.data import TestData
+from pages.auth_page import AuthPage
 
 @pytest.fixture
 def driver():
@@ -24,8 +25,6 @@ def driver():
 @pytest.fixture
 def main_page(driver):
     """Фикстура для главной страницы"""
-    from pages.main_page import MainPage
-    from utils.data import TestData
     
     page = MainPage(driver, TestData.BASE_URL)
     page.open()
@@ -35,8 +34,6 @@ def main_page(driver):
 @pytest.fixture
 def auth_page(driver):
     """Фикстура для страницы авторизации"""
-    from pages.auth_page import AuthPage
-    from utils.data import TestData
     
     page = AuthPage(driver, TestData.BASE_URL)
     page.open()
